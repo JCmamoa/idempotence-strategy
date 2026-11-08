@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: dlq-admin
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/dlq_admin}
+    username: ${SPRING_DATASOURCE_USERNAME:dlq_admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:local-dev-password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:localhost}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:guest}
+    password: ${SPRING_RABBITMQ_PASSWORD:guest}
+    listener:
+      simple:
+        default-requeue-rejected: false
+server:
+  port: 8080
+app:
+  retry:
+    delay-1: ${APP_RETRY_DELAY_1:60000}
+    delay-2: ${APP_RETRY_DELAY_2:300000}

@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: dlq_admin
+      POSTGRES_USER: dlq_admin
+      POSTGRES_PASSWORD: local-dev-password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dlq_admin -d dlq_admin"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build: ./backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/dlq_admin
+      SPRING_DATASOURCE_USERNAME: dlq_admin
+      SPRING_DATASOURCE_PASSWORD: local-dev-password
+      SPRING_RABBITMQ_HOST: rabbitmq
+      APP_RETRY_DELAY_1: 60000
+      APP_RETRY_DELAY_2: 300000
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_TARGET: http://backend:8080
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  postgres-data:

@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+:root { font-family: "DM Sans", sans-serif; color: #e5e7eb; background: #0b0d12; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: radial-gradient(ellipse at 70% -20%, #1b2537 0, #0b0d12 52%); }
+button, textarea { font: inherit; }
+.shell { max-width: 1160px; margin: auto; padding: 34px 32px 22px; }
+.topbar { display: flex; align-items: center; gap: 13px; padding-bottom: 27px; border-bottom: 1px solid #222630; }
+.brand-mark { display: grid; place-items: center; width: 39px; height: 39px; border: 1px solid #4b7cfc; color: #a9c1ff; border-radius: 12px; font-size: 19px; font-weight: 700; }
+h1,h2,h3,p { margin: 0; }
+h1 { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
+.eyebrow { color: #778092; font: 10px "DM Mono", monospace; letter-spacing: 1.15px; }
+.topbar .eyebrow { margin-bottom: 4px; font-size: 9px; }
+.connection { display: flex; align-items: center; gap: 8px; margin-left: auto; color: #9da5b3; font-size: 12px; }
+.connection span { width: 7px; height: 7px; border-radius: 50%; background: #56d49a; box-shadow: 0 0 10px #56d49a66; }
+.intro { display: flex; align-items: center; justify-content: space-between; padding: 36px 0 28px; }
+.intro .eyebrow { margin-bottom: 10px; }
+h2 { font-size: clamp(24px, 3vw, 33px); letter-spacing: -1.2px; font-weight: 600; }
+.muted { color: #8992a2; margin-top: 9px; font-size: 13px; }
+.metric { min-width: 180px; padding: 17px 20px; border: 1px solid #282d38; border-radius: 10px; background: #11141b; display: grid; gap: 3px; }
+.metric-label { color: #7d8798; font: 9px "DM Mono", monospace; letter-spacing: .8px; }
+.metric strong { font: 30px "DM Mono", monospace; color: #e9edf4; }
+.metric-foot { color: #798292; font-size: 11px; }
+.panel { margin-bottom: 17px; padding: 20px 22px; border: 1px solid #252a35; border-radius: 10px; background: #11141aee; box-shadow: 0 12px 30px #00000012; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 19px; }
+.section-heading .eyebrow { margin-bottom: 5px; }
+h3 { font-weight: 600; font-size: 15px; }
+.tag { border: 1px solid #303747; border-radius: 4px; padding: 5px 8px; color: #9caac3; font: 9px "DM Mono", monospace; }
+form > label { display: block; margin-bottom: 7px; color: #929aaa; font-size: 11px; }
+textarea { display: block; width: 100%; padding: 12px; resize: vertical; color: #cbd5e1; background: #0c0f15; border: 1px solid #292f3b; border-radius: 6px; outline: none; font: 12px "DM Mono", monospace; }
+textarea:focus { border-color: #537af0; }
+.form-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-top: 12px; }
+.checkbox { display: flex; align-items: center; gap: 8px; color: #9099a8; font-size: 11px; }
+.checkbox input { accent-color: #658aff; }
+button { cursor: pointer; }
+.form-footer button { padding: 9px 13px; color: white; background: #426bea; border: 1px solid #557bf0; border-radius: 6px; font-size: 11px; font-weight: 600; }
+.form-footer button:hover { background: #5279f5; }
+button:disabled { cursor: wait; opacity: .6; }
+.form-footer button span { margin-left: 8px; }
+.list-heading { margin-bottom: 12px; }
+.count { display: inline-grid; place-items: center; width: 21px; height: 21px; margin-left: 5px; border-radius: 5px; background: #242a36; color: #bbc5d5; font: 10px "DM Mono", monospace; }
+.refresh { padding: 6px 9px; color: #a5afbf; background: transparent; border: 1px solid #303644; border-radius: 5px; font-size: 10px; }
+.refresh:hover,.replay:hover { border-color: #5478ef; color: #c8d4ff; }
+.empty { display: grid; justify-items: center; gap: 8px; min-height: 165px; align-content: center; color: #909aaa; }
+.empty-icon { display: grid; place-items: center; width: 31px; height: 31px; margin-bottom: 3px; border-radius: 50%; border: 1px solid #315d4c; color: #68d6a2; }
+.empty strong { color: #cbd1dc; font-size: 12px; font-weight: 500; }
+.empty span { font-size: 11px; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th { padding: 9px 10px; color: #737e90; border-bottom: 1px solid #282d38; font: 9px "DM Mono", monospace; letter-spacing: .45px; white-space: nowrap; }
+td { padding: 13px 10px; border-bottom: 1px solid #20242d; color: #c4cbd6; font-size: 11px; vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+td code { color: #b6c8f4; font: 10px "DM Mono", monospace; }
+details { margin-top: 5px; color: #818b9b; font-size: 10px; }
+summary { cursor: pointer; }
+pre { max-width: 250px; white-space: pre-wrap; overflow-wrap: anywhere; color: #aeb8c9; font-size: 10px; }
+.failure { max-width: 225px; color: #db9a86; }
+.attempts { padding: 4px 6px; border: 1px solid #41333b; border-radius: 4px; color: #e0a68d; font: 10px "DM Mono", monospace; }
+.date { min-width: 135px; color: #929aaa; white-space: nowrap; }
+.status { display: inline-flex; padding: 4px 7px; border-radius: 4px; font-size: 10px; white-space: nowrap; }
+.status.open { color: #f0bf74; background: #3a2e1d; }
+.status.reprocessing { color: #a8c1ff; background: #202e4c; }
+.status.reprocessed { color: #7edbb0; background: #1d382c; }
+.replay { padding: 6px 8px; color: #aabcf3; border: 1px solid #36415a; border-radius: 5px; background: #171d2a; font-size: 10px; white-space: nowrap; }
+.error { margin-bottom: 14px; padding: 10px 12px; border: 1px solid #643a3a; border-radius: 6px; color: #ffc0b0; background: #291a1a; font-size: 12px; }
+footer { display: flex; justify-content: space-between; padding: 8px 2px; color: #586171; font: 9px "DM Mono", monospace; letter-spacing: .45px; }
+@media (max-width: 680px) { .shell { padding: 20px 14px; } .intro { align-items: flex-start; gap: 16px; flex-direction: column; } .metric { width: 100%; } .panel { padding: 16px 13px; } .form-footer { align-items: flex-start; flex-direction: column; } .form-footer button { width: 100%; } footer { gap: 10px; flex-direction: column; } }

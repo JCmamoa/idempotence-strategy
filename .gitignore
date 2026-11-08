@@ -1,0 +1,14 @@
+# Build outputs
+backend/target/
+frontend/dist/
+frontend/node_modules/
+
+# Local environment and IDE files
+.env
+.env.*
+!.env.example
+.idea/
+
+# OS and log files
+.DS_Store
+*.log
